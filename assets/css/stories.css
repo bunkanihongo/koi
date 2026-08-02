@@ -1,0 +1,105 @@
+/* ==========================================================================
+   koi 物語一覧 — 样式
+   ========================================================================== */
+#st-app { max-width: 720px; margin: 0 auto; padding: 0 4px 40px; }
+
+/* 原帖卡片 */
+.st-root-card {
+  border: 1px solid var(--border-color, #dee2e6);
+  border-left: 4px solid var(--main-color, #2a8c6e);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 16px 0 22px;
+  background: var(--card-bg, #fff);
+}
+.st-root-label { font-size: 0.8rem; color: #888; margin-bottom: 6px; letter-spacing: 0.05em; }
+.st-root-text { font-size: 1.05rem; line-height: 1.7; margin-bottom: 8px; }
+.st-root-meta { font-size: 0.85rem; color: #666; }
+.st-root-meta a { margin-left: 8px; }
+
+/* Tab 切换 */
+.st-tabs { display: flex; gap: 10px; margin: 18px 0 16px; flex-wrap: wrap; }
+.st-tab {
+  border: 1px solid var(--border-color, #dee2e6);
+  background: var(--card-bg, #fff);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--text-color, #333);
+}
+.st-tab:hover { border-color: var(--main-color, #2a8c6e); }
+.st-tab.active {
+  background: var(--main-color, #2a8c6e);
+  border-color: var(--main-color, #2a8c6e);
+  color: #fff;
+}
+.st-count {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 0.78rem;
+  margin-left: 4px;
+}
+.st-tab.active .st-count { background: rgba(255, 255, 255, 0.25); }
+
+/* 卡片列表 */
+.st-card {
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  background: var(--card-bg, #fff);
+  transition: box-shadow 0.15s;
+}
+.st-card:hover { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06); }
+.st-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: #888;
+  margin-bottom: 8px;
+}
+.st-author { font-weight: 600; color: var(--text-color, #444); }
+.st-link { margin-left: auto; color: var(--main-color, #2a8c6e); text-decoration: none; }
+.st-link:hover { text-decoration: underline; }
+.st-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text-color, #333);
+}
+
+/* 分页 */
+.st-pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 22px 0 10px;
+  flex-wrap: wrap;
+}
+.st-pg {
+  border: 1px solid var(--border-color, #dee2e6);
+  background: var(--card-bg, #fff);
+  border-radius: 8px;
+  padding: 7px 16px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-color, #333);
+}
+.st-pg:hover:not(:disabled) { border-color: var(--main-color, #2a8c6e); color: var(--main-color, #2a8c6e); }
+.st-pg:disabled { opacity: 0.45; cursor: not-allowed; }
+.st-pageinfo { font-size: 0.85rem; color: #888; }
+
+.st-empty { text-align: center; color: #999; padding: 40px 0; font-size: 0.95rem; }
+
+/* 首页 hero */
+.st-hero { text-align: center; padding: 30px 0 10px; }
+.st-hero-title { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+.st-hero-sub { color: #888; max-width: 520px; margin: 0 auto; }
