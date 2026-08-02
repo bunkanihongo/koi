@@ -116,22 +116,10 @@
   function load() {
     if (window.__koiData) { render(); return; }
     Promise.all([
-      fetch('/koi/assets/data/root.json').then(function (r) { return r.json(); }),
       fetch('/koi/assets/data/comments.json').then(function (r) { return r.json(); }),
       fetch('/koi/assets/data/quotes.json').then(function (r) { return r.json(); })
     ]).then(function (arr) {
-      window.__koiRoot = arr[0];
-      var root = document.getElementById('st-root');
-      if (root && arr[0]) {
-        root.innerHTML =
-          '<div class="st-root-card">' +
-          '<div class="st-root-label"><i class="fas fa-thumbtack"></i> 原帖</div>' +
-          '<div class="st-root-text">' + esc(arr[0].text || '') + '</div>' +
-          '<div class="st-root-meta">@' + esc(arr[0].author || '') +
-          ' <a href="' + esc(arr[0].url) + '" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> 查看原帖</a></div>' +
-          '</div>';
-      }
-      window.__koiData = { comments: arr[1], quotes: arr[2] };
+      window.__koiData = { comments: arr[0], quotes: arr[1] };
       render();
     }).catch(function (err) {
       var el = document.getElementById('st-app');

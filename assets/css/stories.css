@@ -98,8 +98,3 @@
 .st-pageinfo { font-size: 0.85rem; color: #888; }
 
 .st-empty { text-align: center; color: #999; padding: 40px 0; font-size: 0.95rem; }
-
-/* 首页 hero */
-.st-hero { text-align: center; padding: 30px 0 10px; }
-.st-hero-title { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
-.st-hero-sub { color: #888; max-width: 520px; margin: 0 auto; }
