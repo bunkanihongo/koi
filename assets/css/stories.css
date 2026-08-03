@@ -98,3 +98,18 @@
 .st-pageinfo { font-size: 0.85rem; color: #888; }
 
 .st-empty { text-align: center; color: #999; padding: 40px 0; font-size: 0.95rem; }
+
+/* 引用帖的续写 thread */
+.st-thread {
+  margin-top: 10px;
+  padding-left: 16px;
+  border-left: 3px solid var(--border-color, #dee2e6);
+}
+.st-thread-item {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border-color, #e4e7ea);
+}
+.st-thread-item:first-child { margin-top: 8px; padding-top: 0; border-top: none; }
+.st-thread .st-meta { font-size: 0.78rem; }
+.st-thread .st-author i { color: var(--main-color, #2a8c6e); }

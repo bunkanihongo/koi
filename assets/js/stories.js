@@ -50,6 +50,34 @@
     return html;
   }
 
+  function cardHtml(it, isReply) {
+    var h = '<div class="st-card' + (isReply ? ' st-reply' : '') + '">' +
+      '<div class="st-meta">' +
+      '<span class="st-author"><i class="fas fa-user"></i> @' + esc(it.author || '?') + '</span>' +
+      '<span class="st-ts"><i class="far fa-clock"></i> ' + esc(fmtTs(it.ts)) + '</span>' +
+      '<a class="st-link" href="' + esc(it.url) + '" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> 查看原帖</a>' +
+      '</div>' +
+      '<div class="st-text">' + esc(it.text) + '</div>';
+    // 引用帖的续写（同作者 thread）
+    var rp = it.replies;
+    if (rp && rp.length) {
+      h += '<div class="st-thread">';
+      rp.forEach(function (r) {
+        h += '<div class="st-thread-item">' +
+          '<div class="st-meta">' +
+          '<span class="st-author"><i class="fas fa-reply"></i> @' + esc(r.author || '?') + '</span>' +
+          '<span class="st-ts"><i class="far fa-clock"></i> ' + esc(fmtTs(r.ts)) + '</span>' +
+          '<a class="st-link" href="' + esc(r.url) + '" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> 查看原帖</a>' +
+          '</div>' +
+          '<div class="st-text">' + esc(r.text) + '</div>' +
+          '</div>';
+      });
+      h += '</div>';
+    }
+    h += '</div>';
+    return h;
+  }
+
   function renderList(items, cat) {
     var total = items.length;
     var pages = Math.max(1, Math.ceil(total / PER_PAGE));
@@ -59,14 +87,7 @@
     var slice = items.slice(start, start + PER_PAGE);
     var html = '';
     slice.forEach(function (it) {
-      html += '<div class="st-card">' +
-        '<div class="st-meta">' +
-        '<span class="st-author"><i class="fas fa-user"></i> @' + esc(it.author || '?') + '</span>' +
-        '<span class="st-ts"><i class="far fa-clock"></i> ' + esc(fmtTs(it.ts)) + '</span>' +
-        '<a class="st-link" href="' + esc(it.url) + '" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> 查看原帖</a>' +
-        '</div>' +
-        '<div class="st-text">' + esc(it.text) + '</div>' +
-        '</div>';
+      html += cardHtml(it, false);
     });
     if (!slice.length) {
       html = '<div class="st-empty">暂无数据</div>';
